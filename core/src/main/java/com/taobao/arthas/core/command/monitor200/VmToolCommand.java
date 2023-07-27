@@ -30,6 +30,7 @@ import com.taobao.arthas.core.shell.command.CommandProcess;
 import com.taobao.arthas.core.util.ClassLoaderUtils;
 import com.taobao.arthas.core.util.ClassUtils;
 import com.taobao.arthas.core.util.SearchUtils;
+import com.taobao.arthas.core.view.ObjectView;
 import com.taobao.middleware.cli.annotations.DefaultValue;
 import com.taobao.middleware.cli.annotations.Description;
 import com.taobao.middleware.cli.annotations.Name;
