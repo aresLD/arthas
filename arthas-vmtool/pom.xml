@@ -27,6 +27,8 @@
                 <os_name>macos</os_name>
                 <os_arch_option>-arch x86_64 -arch arm64</os_arch_option>
                 <lib_name>libArthasJniLibrary.dylib</lib_name>
+                <os_arch_compiler>g++-11</os_arch_compiler>
+                <lib_name>libArthasJniLibrary-x64.dylib</lib_name>
             </properties>
         </profile>
 
@@ -42,6 +44,7 @@
             <properties>
                 <os_name>linux</os_name>
                 <os_arch_option>-m64</os_arch_option>
+                <os_arch_compiler>g++</os_arch_compiler>
                 <lib_name>libArthasJniLibrary-x64.so</lib_name>
             </properties>
         </profile>
@@ -81,6 +84,7 @@
             </activation>
             <properties>
                 <os_arch_option>-m64</os_arch_option>
+                <os_arch_compiler>g++</os_arch_compiler>
                 <lib_name>libArthasJniLibrary-x64.dll</lib_name>
             </properties>
             <build>
@@ -103,21 +107,23 @@
                                     <directory>src/main/native/src</directory>
                                     <fileNames>
                                         <fileName>jni-library.cpp</fileName>
+                                        <fileName>HeapAnalyzer.cpp</fileName>
                                     </fileNames>
                                 </source>
                             </sources>
 
                             <compilerProvider>generic-classic</compilerProvider>
-                            <compilerExecutable>g++</compilerExecutable>
+                            <compilerExecutable>${os_arch_compiler}</compilerExecutable>
                             <compilerStartOptions>
                                 <compilerStartOption>${os_arch_option}</compilerStartOption>
                                 <compilerStartOption>-fpic</compilerStartOption>
                                 <compilerStartOption>-shared</compilerStartOption>
+                                <compilerStartOption>-std=c++17</compilerStartOption>
                                 <compilerStartOption>-o</compilerStartOption>
                             </compilerStartOptions>
 
                             <linkerOutputDirectory>target</linkerOutputDirectory>
-                            <linkerExecutable>g++</linkerExecutable>
+                            <linkerExecutable>${os_arch_compiler}</linkerExecutable>
                             <linkerStartOptions>
                                 <linkerStartOption>${os_arch_option}</linkerStartOption>
                                 <linkerStartOption>-fpic</linkerStartOption>
@@ -185,21 +191,23 @@
                             <directory>src/main/native/src</directory>
                             <fileNames>
                                 <fileName>jni-library.cpp</fileName>
+                                <fileName>HeapAnalyzer.cpp</fileName>
                             </fileNames>
                         </source>
                     </sources>
 
                     <compilerProvider>generic-classic</compilerProvider>
-                    <compilerExecutable>g++</compilerExecutable>
+                    <compilerExecutable>${os_arch_compiler}</compilerExecutable>
                     <compilerStartOptions>
                         <compilerStartOption>${os_arch_option}</compilerStartOption>
                         <compilerStartOption>-fpic</compilerStartOption>
                         <compilerStartOption>-shared</compilerStartOption>
+                        <compilerStartOption>-std=c++17</compilerStartOption>
                         <compilerStartOption>-o</compilerStartOption>
                     </compilerStartOptions>
 
                     <linkerOutputDirectory>target</linkerOutputDirectory>
-                    <linkerExecutable>g++</linkerExecutable>
+                    <linkerExecutable>${os_arch_compiler}</linkerExecutable>
                     <linkerStartOptions>
                         <linkerStartOption>${os_arch_option}</linkerStartOption>
                         <linkerStartOption>-fpic</linkerStartOption>
